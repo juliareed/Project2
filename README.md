@@ -1,18 +1,18 @@
-#Project 2
+# Project 2
 
-##Contributors/Roles
+## Contributors/Roles
 
 Scrum Master: Michael David
 Git Guardian: Julia Reed
 
-##Front-end Team
+## Front-end Team
 Humera Shaikh
 Julia Reed
 
 
-##Back-end Team
+## Back-end Team
 Stephanie Estella
 Michael David
 
-##Summary
+## Summary
 Really cool.
