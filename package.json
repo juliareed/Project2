@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/juliareed/Project2#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "firebaseui": "^2.4.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.22.0"
   }
 }
