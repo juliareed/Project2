@@ -1,22 +1,8 @@
-/* Custom Stylesheet */
-
-
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
 nav ul a,
 nav .brand-logo {
     color: white;
     font-family: 'Geo', sans-serif;
     font-size: 100px;
-}
-
-p {
-    line-height: 2rem;
 }
 
 .incognito {
@@ -33,7 +19,7 @@ h5 {
 }
 
 .button-collapse {
-    color: #26a69a;
+    color: white;
 }
 
 #download-button {
@@ -52,54 +38,14 @@ h5 {
 }
 
 .parallax-container {
-    min-height: 380px;
+    height: 1000px;
     line-height: 0;
     height: auto;
     color: black;
-}
-
-.parallax-container .section {
-    width: 100%;
-}
-
-@media only screen and (max-width: 992px) {
-    .parallax-container .section {
-        position: absolute;
-        top: 40%;
-    }
-    #index-banner .section {
-        top: 10%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    #index-banner .section {
-        top: 0;
-    }
-}
-
-.icon-block {
-    padding: 0 15px;
-}
-
-.icon-block .material-icons {
-    font-size: inherit;
-}
-
-footer.page-footer {
-    margin: 0;
-    color: black;
-    font-family: 'Geo', sans-serif;
-    font-size: 100px;
 }
 
 body {
     background-color: black;
     font-family: 'Geo', sans-serif;
     font-size: 20px;
-}
-
-#container {
-    width: 500px;
-    margin: auto;
 }
