@@ -1,54 +1,64 @@
-nav ul a,
-nav .brand-logo {
-    color: white;
-    font-family: 'Futura', sans-serif;
-    font-size: 50px;
-}
-
-.incognito {
-    font-size: 100px;
-    font-family: 'Futura';
-    color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
-    text-align: center;
-}
-
-h5 {
-    color: white;
-    font-family: 'Geo', sans-serif;
-}
-
-.button-collapse {
-    color: white;
-}
-
-#download-button {
-    display: inline-block;
-    width: 200px;
-    padding: 8px 8px 8px 8px;
-    padding-bottom: 10px;
-    font-family: 'future', sans-serif;
-    color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
-    text-align: center;
-    border: 3px solid #fff;
-    text-align: center;
-    outline: none;
-    text-decoration: none;
-    transition: background-color 0.2s ease-out, color 0.2s ease-out;
-    background-color: black;
-    text-transform: lowercase;
-}
-
-.parallax-container {
-    height: 1000px;
-    line-height: 0;
-    height: auto;
-    color: black;
-}
-
-body {
-    background-color: black;
-    font-family: 'Geo', sans-serif;
-    font-size: 20px;
-}
+    nav ul a,
+    nav .brand-logo {
+        color: white;
+        font-family: 'Futura', sans-serif;
+        font-size: 50px;
+        margin: 0 auto 0 auto;
+    }
+    
+    .incognito {
+        font-size: 100px;
+        font-family: 'Futura';
+        color: #fff;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+        text-align: center;
+    }
+    
+    h5 {
+        color: white;
+        font-family: 'Geo', sans-serif;
+        margin: 0 auto 0 auto;
+    }
+    
+    .button-collapse {
+        color: white;
+    }
+    
+    #download-button {
+        display: inline-block;
+        width: 200px;
+        padding: 8px 8px 8px 8px;
+        padding-bottom: 10px;
+        font-family: 'future', sans-serif;
+        color: #fff;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+        text-align: center;
+        border: 3px solid #fff;
+        outline: none;
+        text-decoration: none;
+        transition: background-color 0.2s ease-out, color 0.2s ease-out;
+        background-color: black;
+        text-transform: lowercase;
+    }
+    
+    .parallax-container {
+        height: 1000px;
+        line-height: 0;
+        height: auto;
+        color: black;
+    }
+    
+    body {
+        background-color: black;
+        font-family: 'Geo', sans-serif;
+        font-size: 20px;
+    }
+    
+    .card {
+        background-color: black;
+        color: white;
+    }
+    
+    .container {
+        margin: 0 auto 0 auto;
+    }
