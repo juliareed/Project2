@@ -13,15 +13,15 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.sendFile(path.join(__dirname, "../views/index.html"));
   });
 
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/profile", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/profile.html"));
   });
 
   // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/map", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/map.html"));
   });
 };
