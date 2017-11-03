@@ -13,7 +13,15 @@ var Secrets = sequelize.define('secrets', {
     },
     comments: {
       type: Sequelize.STRING,
+    },
+    longitude: {
+      type: Sequelize.DECIMAL,
+    },
+    latitude: {
+      type: Sequelize.DECIMAL,
     }
+
+
   });
 
 users.belongsToMany(secrets, {
