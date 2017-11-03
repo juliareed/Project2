@@ -1,34 +1,21 @@
-var Sequelize = require("sequelize");
-
-var sequelize = require("../config/connection.js");
-
-
-var Secrets = sequelize.define('secrets', {
-    secrets: {
-      type: Sequelize.STRING,
+module.exports = function(sequelize, DataTypes) {
+var Secret = sequelize.define('Secret', {
+    secret: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
     }
     },
-    comments: {
-      type: Sequelize.STRING,
+    comment: {
+      type: DataTypes.STRING,
     },
     longitude: {
-      type: Sequelize.DECIMAL,
+      type: DataTypes.DECIMAL,
     },
     latitude: {
-      type: Sequelize.DECIMAL,
+      type: DataTypes.DECIMAL,
     }
-
-
   });
-
-users.belongsToMany(secrets, {
-  through: 'id',
-  foreignKey: 'id'
-});
-
-secrets_db.sync();
-
-module.exports = Secrets;
+  return Secret;
+}
