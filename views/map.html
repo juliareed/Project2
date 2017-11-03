@@ -27,12 +27,12 @@
     <!-- Google Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet">
-    
+
     <!-- Setting Map to 100% of the div container -->
     <style>
-      #map {
-        height: 100%;
-      }
+        #map {
+            height: 100%;
+        }
     </style>
 
 </head>
@@ -60,17 +60,27 @@
             <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
-    <div id="index-banner" class="parallax-container black">
-        <div class="row center">
-            <div id="incognito">
-                <h1>in<span id="offset">cogn</span>ito</h1>
-            </div>
-            <!-- <h5 class="header col s12 light">Click or post a secret!
-            </h5> -->
+    <div class="row center">
+        <div id="incognito">
+            <h1>in<span id="offset">cogn</span>ito</h1>
         </div>
     </div>
-    <div class="row center">
-        <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
+    <div><br><br><br><br><br></div>
+    <div class="row">
+        <div class="col s2">
+            <a class="waves-effect light-blue darken-2 btn"><i class="material-icons left">textsms</i>post a secret</a>
+        </div>
+        <div class="col s2">
+            <a class="waves-effect light-blue darken-2 btn"><i class="material-icons left">location_on</i>refresh map</a>
+        </div>
+        <div class="row">
+            <div class="col s2">
+                <br>
+            </div>
+        </div>
+        <div class="row center">
+            <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
+            </div>
         </div>
     </div>
     <!--  Scripts-->
@@ -82,13 +92,17 @@
 
     <!-- Geolocation Map -->
     <div id="map"></div>
-        <script>
-          var map, infoWindow;
-          function initMap() {
+    <script>
+        var map, infoWindow;
+
+        function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: 41.8781, lng: -87.6298},
-              zoom: 16,
-                    styles: [{
+                center: {
+                    lat: 41.8781,
+                    lng: -87.6298
+                },
+                zoom: 16,
+                styles: [{
                     "stylers": [{
                         "hue": "#FF00E6"
                     }, {
@@ -105,35 +119,34 @@
             infoWindow = new google.maps.InfoWindow;
 
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                };
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
 
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Your adventures begins here!');
-                infoWindow.open(map);
-                map.setCenter(pos);
-              }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-              });
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Your adventures begins here!');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
             } else {
-              handleLocationError(false, infoWindow, map.getCenter());
+                handleLocationError(false, infoWindow, map.getCenter());
             }
-          }
+        }
 
-          function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
             infoWindow.setContent(browserHasGeolocation ?
-                                  'Error: The Geolocation service failed.' :
-                                  'Error: Your browser doesn\'t support geolocation.');
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
-          }
-        </script>
+        }
+    </script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
     </script>
 </body>
 
