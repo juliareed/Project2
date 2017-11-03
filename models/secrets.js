@@ -16,6 +16,11 @@ var Secrets = sequelize.define('secrets', {
     }
   });
 
+users.belongsToMany(secrets, {
+  through: 'id',
+  foreignKey: 'id'
+});
+
 secrets_db.sync();
 
 module.exports = Secrets;
