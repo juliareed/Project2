@@ -33,7 +33,7 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">MICHAEL'S LOGO</a>
             <ul class="right hide-on-med-and-down" id="navbar">
-                <li><a href="index.html">login</a></li>
+                <li><a class="waves-effect light-blue darken-2 btn modal-trigger" id="signinbutton" href="#loginmodal">sign in</a></li>
             </ul>
             <ul class="right hide-on-med-and-down" id="navbar">
                 <li><a href="profile.html">profile</a></li>
@@ -66,6 +66,13 @@
 
     </div>
     </div>
+    <!-- Modal -->
+    <div id="loginmodal" class="modal">
+        <div class="modal-content">
+        </div>
+    </div>
+    </div>
+    </div>
     <!--  Scripts-->
     <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <script>
@@ -80,9 +87,9 @@
         };
         firebase.initializeApp(config);
     </script>
-        <!-- FirebaseUI CDN -->
-        <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css"/>
+    <!-- FirebaseUI CDN -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css" />
     <script>
         // FirebaseUI config.
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -127,6 +134,20 @@
             $("#signinstatus").hide();
             $("#signout").hide();
         })
+
+
+
+        // log in modal
+        $(document).ready(function() {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('#loginmodal').modal();
+        });
+
+        $("#signinbutton").click(function() {
+            $(".modal-content").html(`
+              <h5>LOGIN SHIT HERE</h5>
+        `)
+        });
     </script>
     <!-- Links to Js Files -->
     <script src="js/materialize.js"></script>
