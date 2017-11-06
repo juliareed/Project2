@@ -61,7 +61,7 @@
     <div><br><br><br><br><br><br><br></div>
     <div class="row">
         <div class="col s2">
-            <a class="waves-effect light-blue darken-2 btn modal-trigger" href="#modal1"><i class="material-icons left">textsms</i>post a secret</a>
+            <a class="waves-effect light-blue darken-2 btn modal-trigger" id="postbutton" href="#modal1"><i class="material-icons left">textsms</i>post a secret</a>
         </div>
         <div class="col s2">
             <a class="waves-effect light-blue darken-2 btn" href="map.html"><i class="material-icons left">location_on</i>refresh map</a>
@@ -76,22 +76,6 @@
             <!-- Modal -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                    <h5>What's you deepest, darkest secret?</h5>
-                    <br>
-                    <form class="col s12">
-                        <div class="row modal-form-row">
-                            <div class="input-field col s12">
-                                <i class="material-icons">star_border</i>
-                                <input id="secret" type="text" class="validate">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="secret" type="text" class="validate">
-                                <div class="modal-footer">
-                                    <a href="#!" class="modal-action modal-close waves-effect light-blue darken-2 btn">Post Secret</a>
-                                </div>
-                    </form>
                     </div>
                     </div>
                 </div>
@@ -361,14 +345,12 @@
                     map: map
                 });
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: response[i].secret,
-                    maxWidth: 200,
-                    position: uluru
+                marker.info = new google.maps.InfoWindow({
+                  content: response[i].secret
                 });
 
-                marker.addListener('click', function() {
-                    infowindow.open(map, this);
+                google.maps.event.addListener(marker, "click", function (){
+                  this.info.open(map, this);
                 });
             }
         });
@@ -388,16 +370,23 @@
             $('#modal1').modal();
         });
 
-        // $("#postbutton").click(function() {
-        //     $("#postcontainer").html(`
-        // <form action="/api/secrets" method="post">
-        //   Secret: <input type="text" name="secret"><br>
-        //   lat: <input type="number" name="lat" value=${userPos[0].lat} readonly><br>
-        //   long: <input type="number" name="lng" value=${userPos[0].lng} readonly><br>
-        // <input type="submit" value="Submit">
-        // </form>
-        // `)
-        // });
+        $("#postbutton").click(function() {
+            $(".modal-content").html(`
+              <h5>What's your deepest, darkest secret?</h5>
+              <br>
+              <form class="col s12" action="api/secrets" method="post">
+                  <div class="row modal-form-row">
+                      <div class="input-field col s12">
+                          <i class="material-icons">star_border</i>
+                          <input id="secret" type="text" class="validate" name="secret">
+                          <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
+                          <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
+                          <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" value="post a secret">
+                      </div>
+                  </div>
+              </form>
+        `)
+      });
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
     </script>
