@@ -10,11 +10,14 @@ var Secret = sequelize.define('Secret', {
     comments: {
       type: DataTypes.STRING,
     },
-    longitude: {
-      type: DataTypes.DECIMAL,
+    lat: {
+      type: DataTypes.DECIMAL(17, 15),
     },
-    latitude: {
-      type: DataTypes.DECIMAL,
+    lng: {
+      type: DataTypes.DECIMAL(17, 15),
+    },
+    uid: {
+      type: DataTypes.STRING,
     }
   });
   return Secret;
