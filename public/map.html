@@ -61,10 +61,7 @@
     <div><br><br><br><br><br><br><br></div>
     <div class="row">
         <div class="col s2">
-            <a class="waves-effect light-blue darken-2 btn" id="postbutton"><i class="material-icons left">textsms</i>post a secret</a>
-        </div>
-        <div id="postcontainer">
-
+            <a class="waves-effect light-blue darken-2 btn modal-trigger" href="#modal1"><i class="material-icons left">textsms</i>post a secret</a>
         </div>
         <div class="col s2">
             <a class="waves-effect light-blue darken-2 btn" href="map.html"><i class="material-icons left">location_on</i>refresh map</a>
@@ -75,14 +72,37 @@
                     <h1> in<span id="offset">cogn</span>ito </h1>
                 </div>
             </div>
-        </div>
 
-    </div>
-    <div class="row center">
-        <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
+            <!-- Modal -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h5>What's you deepest, darkest secret?</h5>
+                    <br>
+                    <form class="col s12">
+                        <div class="row modal-form-row">
+                            <div class="input-field col s12">
+                                <i class="material-icons">star_border</i>
+                                <input id="secret" type="text" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="secret" type="text" class="validate">
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-action modal-close waves-effect light-blue darken-2 btn">Post Secret</a>
+                                </div>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row center">
+            <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
+            </div>
         </div>
     </div>
-    </div>
+
     <!--  Scripts-->
     <!-- Links to Js Files -->
     <script src="js/materialize.js"></script>
@@ -363,17 +383,21 @@
         }
 
 
-
-        $("#postbutton").click(function() {
-            $("#postcontainer").html(`
-            <form action="/api/secrets" method="post">
-              Secret: <input type="text" name="secret"><br>
-              lat: <input type="number" name="lat" value=${userPos[0].lat} readonly><br>
-              long: <input type="number" name="lng" value=${userPos[0].lng} readonly><br>
-            <input type="submit" value="Submit">
-            </form>
-            `)
+        $(document).ready(function() {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('#modal1').modal();
         });
+
+        // $("#postbutton").click(function() {
+        //     $("#postcontainer").html(`
+        // <form action="/api/secrets" method="post">
+        //   Secret: <input type="text" name="secret"><br>
+        //   lat: <input type="number" name="lat" value=${userPos[0].lat} readonly><br>
+        //   long: <input type="number" name="lng" value=${userPos[0].lng} readonly><br>
+        // <input type="submit" value="Submit">
+        // </form>
+        // `)
+        // });
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
     </script>
