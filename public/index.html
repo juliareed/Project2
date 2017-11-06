@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Let browser know website is optimized for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Google Maps Link -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <!--  jQuery-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <title>incognito.</title>
 
@@ -67,6 +67,7 @@
     </div>
     </div>
     <!--  Scripts-->
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -78,8 +79,11 @@
             messagingSenderId: "516741037588"
         };
         firebase.initializeApp(config);
-
-
+    </script>
+        <!-- FirebaseUI CDN -->
+        <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css"/>
+    <script>
         // FirebaseUI config.
         var provider = new firebase.auth.GoogleAuthProvider();
         var uiConfig = {
@@ -124,8 +128,6 @@
             $("#signout").hide();
         })
     </script>
-    <!--  jQuery-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Links to Js Files -->
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
