@@ -32,7 +32,7 @@
 
     <nav class="black" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">MICHAEL'S LOGO</a>
+            <a id="logo-container" href="index.html" class="brand-logo">MICHAEL'S LOGO</a>
             <ul class="right hide-on-med-and-down" id="navbar">
                 <li><a class="waves-effect light-blue darken-2 btn modal-trigger" id="signinbutton" href="#loginmodal">sign in</a></li>
             </ul>
@@ -71,12 +71,11 @@
         <div class="col s5">
         </div>
         <div class="col s5">
-            <a class="waves-effect light-blue darken-2 btn modal-trigger" id="findsecrets" data-username="humera">find my secrets</a>
+            <a class="waves-effect light-blue darken-2 btn modal-trigger" id="findsecrets" data-username="julia">find my secrets</a>
         </div>
         <div class="row">
             <div class="col s6">
-                <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493;" class="card-panel">
-                    <span id="secrets"> </span>
+                <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493;" id="secrets" class="card-panel">
                 </div>
 
                 <div class="col s6">
@@ -93,7 +92,6 @@
             <script src="js/init.js"></script>
 
 <script>
-
             $("#findsecrets").click(function() {
               var username = $(this).data("username");
                 $.ajax({
@@ -101,9 +99,8 @@
                     method: "GET"
                 }).done(function(response) {
                     console.log(response);
-                    for (var i = 0; i < response.length; i++) {
-                        $("#secrets").append(response[i].secret);
-                    }
+                    var allSecrets = response.map(item => `<p> ${item.secret} </p>`)
+                    $("#secrets").html(allSecrets);
                 });
               })
  </script>
@@ -118,22 +115,10 @@
                         </div>
                     </div>
                 </div>
-
-
+            </div>
                 <!-- Links to Js Files -->
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-  <script>
-      $.ajax({
-          url: "api/secrets/" + this.value,
-          method: "GET"
-          }).done(function(response) {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-            $("#secrets").append(response[i].secret);
-            }
-          });
-  </script>
 </body>
 
 </html>
