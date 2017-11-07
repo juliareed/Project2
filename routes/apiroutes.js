@@ -12,11 +12,11 @@ module.exports = function(app) {
   });
 
   // Get route for returning secrets of a specific category
-  app.get("/api/secrets/category/:category", function(req, res) {
+  app.get("/api/secrets/:username", function(req, res) {
     db.Secret
       .findAll({
         where: {
-          category: req.params.category
+          username: req.params.username
         }
       })
       .then(function(dbSecret) {
@@ -34,7 +34,7 @@ module.exports = function(app) {
         lng: req.body.lng
       })
       .then(function(dbSecret) {
-        res.json(dbSecret);
+        res.redirect("/map");
       });
   });
 }
