@@ -20,6 +20,8 @@ module.exports = function(app) {
                 }
             })
             .then(function(dbSecret) {
+              console.log(dbSecret);
+              res.send(dbSecret);
               res.redirect("/profile");
             });
     });
