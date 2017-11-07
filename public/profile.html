@@ -71,89 +71,42 @@
     <div class="row">
         <div class="col s6">
             <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493;" class="card-panel">
-            <span class>
-            <!-- this doesn't have to be a loop, idiot -->
-            <?php
-            $con = mysql_connect("localhost","root","");
-            if (!$con)
-            {
-            die(mysql_error());
-            }
-        
-            mysql_select_db("secrets_db", $con);
-        
-            $result = mysql_query("SELECT * FROM Secrets");
-        
-            while($row = mysql_fetch_array($result))
-            {
-                echo '<div>' . $row['username'] . '</div>';
-            }
-        
-            mysql_close($con);
-            ?>
-            </span>
+                <span id="secrets"> </span>
             </div>
-       
-        <div class="col s6">
-            <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class></span>
+
+            <div class="col s6">
+                <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
+                    <span class> </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s6">
-            <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>
-                <?php
-                $con = mysql_connect("localhost","root","");
-                if (!$con)
-                {
-                die(mysql_error());
-                }
-            
-                mysql_select_db("secrets_db", $con);
-            
-                $result = mysql_query("SELECT * FROM Secrets");
-            
-                while($row = mysql_fetch_array($result))
-                {
-                    echo '<div>' . $row['secret'] . '</div>';
-                }
-            
-                mysql_close($con);
-                ?>
-                </span>
+        <div class="row">
+            <div class="col s6">
+                <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
+                    <span class> </span>
+                </div>
+                <div class="col s6">
+                    <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
+                        <span class> </span>
+                    </div>
+                </div>
             </div>
-        <div class="col s6">
-            <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>
-                <?php
-                $con = mysql_connect("localhost","root","");
-                if (!$con)
-                {
-                  die(mysql_error());
-                }
-                
-                mysql_select_db("secrets_db", $con);
-                
-                $result = mysql_query("SELECT * FROM Secrets");
-                
-                while($row = mysql_fetch_array($result))
-                {
-                    echo '<div>' . $row['comment'] . '</div>';
-                }
-                
-                mysql_close($con);
-                ?>
-                </span>
-            </div>
-        </div>
-    </div>
 
 
-    <!-- Links to Js Files -->
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+            <!-- Links to Js Files -->
+            <script src="js/materialize.js"></script>
+            <script src="js/init.js"></script>
+            <script>
+                $.ajax({
+                    url: "api/secrets/" + this.value,
+                    method: "GET"
+                }).done(function(response) {
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        $("#secrets").append(response[i].secret);
+                    }
+                });
+            </script>
 </body>
 
 </html>
