@@ -7,6 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--  jQuery-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Firebase Config -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB5iww-loz_Evzv1Z-kSbOCyuhnIz1I-Ng",
+            authDomain: "incognito-f9e47.firebaseapp.com",
+            databaseURL: "https://incognito-f9e47.firebaseio.com",
+            projectId: "incognito-f9e47",
+            storageBucket: "incognito-f9e47.appspot.com",
+            messagingSenderId: "516741037588"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- FirebaseUI CDN -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css" />
+
+    <script>
+        // FirebaseUI config.
+        var provider = new firebase.auth.GoogleAuthProvider();
+        var uiConfig = {
+            signInSuccessUrl: 'map.html',
+            signInFlow: "popup",
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+
+
+
+        // User authentication change
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var email = user.email;
+                console.log(user);
+                $("#accountdetails").text(email);
+                $("#signinstatuscontainer").show();
+                $("#signInButton").hide();
+                $("#signout").show();
+
+            } else {
+                // redirects to login
+                // window.location = "index.html";
+                return;
+            }
+        });
+        // logouts the user
+        $("#signout").on("click", function() {
+            firebase.auth().signOut();
+            $("#signInButton").show();
+            $("#signinstatus").hide();
+            $("#signout").hide();
+        })
+
+
+
+        // log in modal
+        $(document).ready(function() {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('#loginmodal').modal();
+        });
+
+    </script>
 
     <title>incognito.</title>
 
@@ -65,90 +138,11 @@
         </div>
 
     </div>
-    </div>
     <!-- Modal -->
     <div id="loginmodal" class="modal">
-        <div class="modal-content">
-        </div>
+        <div id='firebaseui-auth-container'></div>
     </div>
     </div>
-    </div>
-    <!--  Scripts-->
-    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyB5iww-loz_Evzv1Z-kSbOCyuhnIz1I-Ng",
-            authDomain: "incognito-f9e47.firebaseapp.com",
-            databaseURL: "https://incognito-f9e47.firebaseio.com",
-            projectId: "incognito-f9e47",
-            storageBucket: "incognito-f9e47.appspot.com",
-            messagingSenderId: "516741037588"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <!-- FirebaseUI CDN -->
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css" />
-    <script>
-        // FirebaseUI config.
-        var provider = new firebase.auth.GoogleAuthProvider();
-        var uiConfig = {
-            signInSuccessUrl: 'index.html',
-            signInFlow: "popup",
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID
-            ],
-            // Terms of service url.
-            tosUrl: '<your-tos-url>'
-        };
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-
-
-
-        // User authentication change
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                var email = user.email;
-                $("#accountdetails").text(email);
-                $("#signinstatuscontainer").show();
-                $("#signInButton").hide();
-                $("#signout").show();
-
-            } else {
-                // redirects to login
-                // window.location = "index.html";
-                return;
-            }
-        });
-        // logouts the user
-        $("#signout").on("click", function() {
-            firebase.auth().signOut();
-            $("#signInButton").show();
-            $("#signinstatus").hide();
-            $("#signout").hide();
-        })
-
-
-
-        // log in modal
-        $(document).ready(function() {
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('#loginmodal').modal();
-        });
-
-        $("#signinbutton").click(function() {
-            $(".modal-content").html(`
-              <h5>LOGIN SHIT HERE</h5>
-        `)
-        });
-    </script>
     <!-- Links to Js Files -->
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
