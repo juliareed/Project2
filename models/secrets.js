@@ -16,7 +16,7 @@ var Secret = sequelize.define('Secret', {
     lng: {
       type: DataTypes.DECIMAL(17, 15),
     },
-    uid: {
+    username: {
       type: DataTypes.STRING,
     }
   });
