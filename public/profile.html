@@ -31,11 +31,11 @@
 
 <body class="profilebody">
 
-    <nav class=" blue-grey darken-3" role="navigation">
+    <nav class="black" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">MICHAEL'S LOGO</a>
             <ul class="right hide-on-med-and-down" id="navbar">
-                <li><a href="index.html">login</a></li>
+                <li><a class="waves-effect light-blue darken-2 btn modal-trigger" id="signinbutton" href="#loginmodal">sign in</a></li>
             </ul>
             <ul class="right hide-on-med-and-down" id="navbar">
                 <li><a href="profile.html">profile</a></li>
@@ -68,49 +68,92 @@
 
     </div>
     </div>
-
-    <!-- CARDS::: for the transparency of the cards, to adjust change the 0.02 up and down to the shade you think is best. I though .03 wasn't bad but feel free to mess with it. When I added the font color to the CSS it didn't do anything. I added the font color in the HTML instead and I was able to achieve the pink you wanted. -->
-
     <div class="row">
         <div class="col s6">
             <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493;" class="card-panel">
-                <span class>Profile Info:
+            <span class>
+            <!-- this doesn't have to be a loop, idiot -->
+            <?php
+            $con = mysql_connect("localhost","root","");
+            if (!$con)
+            {
+            die(mysql_error());
+            }
+        
+            mysql_select_db("secrets_db", $con);
+        
+            $result = mysql_query("SELECT * FROM Secrets");
+        
+            while($row = mysql_fetch_array($result))
+            {
+                echo '<div>' . $row['username'] . '</div>';
+            }
+        
+            mysql_close($con);
+            ?>
             </span>
             </div>
-        </div>
+       
         <div class="col s6">
             <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>My Secrets:
-                  </span>
+                <span class></span>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col s6">
             <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>My Secrets' Comments:
-                      </span>
+                <span class>
+                <?php
+                $con = mysql_connect("localhost","root","");
+                if (!$con)
+                {
+                die(mysql_error());
+                }
+            
+                mysql_select_db("secrets_db", $con);
+            
+                $result = mysql_query("SELECT * FROM Secrets");
+            
+                while($row = mysql_fetch_array($result))
+                {
+                    echo '<div>' . $row['secret'] . '</div>';
+                }
+            
+                mysql_close($con);
+                ?>
+                </span>
             </div>
-        </div>
         <div class="col s6">
             <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>Read Secrets:
-                          </span>
+                <span class>
+                <?php
+                $con = mysql_connect("localhost","root","");
+                if (!$con)
+                {
+                  die(mysql_error());
+                }
+                
+                mysql_select_db("secrets_db", $con);
+                
+                $result = mysql_query("SELECT * FROM Secrets");
+                
+                while($row = mysql_fetch_array($result))
+                {
+                    echo '<div>' . $row['comment'] . '</div>';
+                }
+                
+                mysql_close($con);
+                ?>
+                </span>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col s6">
-            <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                <span class>My Comments:
-                              </span>
-            </div>
-        </div>
 
 
-        <!-- Links to Js Files -->
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
+    <!-- Links to Js Files -->
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
 </body>
 
 </html>
