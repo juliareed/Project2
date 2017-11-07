@@ -98,6 +98,8 @@
             <script src="js/materialize.js"></script>
             <script src="js/init.js"></script>
             <script>
+
+            $("#findsecrets").click(function() {
                 $.ajax({
                     url: "api/secrets/" + this.value,
                     method: "GET"
@@ -107,6 +109,7 @@
                         $("#secrets").append(response[i].secret);
                     }
                 });
+              }
             </script>
 </body>
 
