@@ -318,7 +318,7 @@
                     };
 
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent('Your adventure begins here!');
+                    infoWindow.setContent('<br />Your adventure begins here!');
                     infoWindow.open(map);
                     map.setCenter(pos);
                     userPos.push(pos);
@@ -346,7 +346,13 @@
                 });
 
                 marker.info = new google.maps.InfoWindow({
-                    content: response[i].secret
+                    content: `
+                    <br />
+                    ${response[i].createdAt}<br>
+                    <br />
+                    ${response[i].secret}
+
+                    `
                 });
 
                 google.maps.event.addListener(marker, "click", function() {
