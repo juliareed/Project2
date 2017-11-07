@@ -11,6 +11,7 @@ app.get("/secrets", function(req, res) {
     });
 });
 
+<<<<<<< HEAD
 // Get route for returning secrets of a specific category
 app.get("/api/secrets/username/:username", function(req, res) {
     db.Secret
@@ -26,6 +27,20 @@ app.get("/api/secrets/username/:username", function(req, res) {
 
             // }
             // if (res.json === req.body.comment) {
+=======
+  // Get route for returning secrets of a specific category
+  app.get("/api/secrets/:username", function(req, res) {
+    db.Secret
+      .findAll({
+        where: {
+          username: req.params.username
+        }
+      })
+      .then(function(dbSecret) {
+        res.json(dbSecret);
+      });
+  });
+>>>>>>> b3d326b1652c7a40f1adad478b2aaf0f1082e548
 
             // }
             // if (res.json === )
@@ -45,6 +60,7 @@ app.get("/api/secrets/username/:username", function(req, res) {
 // POST route for saving a new secret
 app.post("/api/secrets", function(req, res) {
     db.Secret
+<<<<<<< HEAD
         .create({
             secret: req.body.secret,
             lat: req.body.lat,
@@ -56,3 +72,15 @@ app.post("/api/secrets", function(req, res) {
 })
 })
 }
+=======
+      .create({
+        secret: req.body.secret,
+        lat: req.body.lat,
+        lng: req.body.lng
+      })
+      .then(function(dbSecret) {
+        res.redirect("/map");
+      });
+  });
+}
+>>>>>>> b3d326b1652c7a40f1adad478b2aaf0f1082e548
