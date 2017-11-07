@@ -44,9 +44,9 @@
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="index.html">login</a></li>
-                <li><a href="profile.html">profile</a></li>
-                <li><a href="map.html">map</a></li>
+                <li><a href="index.html" id="login">login</a></li>
+                <li><a href="profile.html" id="profile">profile</a></li>
+                <li><a href="map.html" id="map">map</a></li>
             </ul>
             <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -80,7 +80,7 @@
 
                 <div class="col s6">
                     <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                      <span class> </span>
+                        <span class> </span>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
 
 <script>
             $("#findsecrets").click(function() {
-              var username = $(this).data("username");
+                var username = $(this).data("username");
                 $.ajax({
                     url: `api/secrets/${username}`,
                     method: "GET"
@@ -102,20 +102,20 @@
                     var allSecrets = response.map(item => `<p> ${item.secret} </p>`)
                     $("#secrets").html(allSecrets);
                 });
-              })
- </script>
-            <div class="row">
+            })
+</script>
+        <div class="row">
+            <div class="col s6">
+                <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
+                    <span class> </span>
+                </div>
                 <div class="col s6">
                     <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
                         <span class> </span>
                     </div>
-                    <div class="col s6">
-                        <div style="background: rgba(255, 255, 255, 0.03); color: #FF1493" class="card-panel">
-                            <span class> </span>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
                 <!-- Links to Js Files -->
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
