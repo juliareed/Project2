@@ -41,7 +41,7 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">MICHAEL'S LOGO</a>
             <ul class="right hide-on-med-and-down" id="navbar">
-                <li><a href="index.html">login</a></li>
+                <li><a class="waves-effect light-blue darken-2 btn modal-trigger" id="signinbutton" href="#loginmodal">sign in</a></li>
             </ul>
             <ul class="right hide-on-med-and-down" id="navbar">
                 <li><a href="profile.html">profile</a></li>
@@ -76,15 +76,15 @@
             <!-- Modal -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                    </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="row center">
-            <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
-            </div>
+    </div>
+    </div>
+    <div class="row center">
+        <div id="map" style="width: 100%; height: 500px; margin: 0 auto 0 auto;">
         </div>
+    </div>
     </div>
 
     <!--  Scripts-->
@@ -346,11 +346,11 @@
                 });
 
                 marker.info = new google.maps.InfoWindow({
-                  content: response[i].secret
+                    content: response[i].secret
                 });
 
-                google.maps.event.addListener(marker, "click", function (){
-                  this.info.open(map, this);
+                google.maps.event.addListener(marker, "click", function() {
+                    this.info.open(map, this);
                 });
             }
         });
@@ -386,7 +386,7 @@
                   </div>
               </form>
         `)
-      });
+        });
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
     </script>
