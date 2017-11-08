@@ -39,7 +39,7 @@
 
     <nav class="black" role="navigation">
         <div class="nav-wrapper container">
-            <img src="images/logo.png" alt="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
             <ul class="right hide-on-med-and-down" id="navbar">
                 <li><a class="waves-effect light-blue darken-2 btn modal-trigger" id="signinbutton" href="#loginmodal">sign out</a></li>
             </ul>
@@ -387,7 +387,7 @@
                           <input id="secret" type="text" class="validate" name="secret">
                           <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
                           <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
-                          <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" value="post a secret">
+                          <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
                       </div>
                   </div>
               </form>
