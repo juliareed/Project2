@@ -1,4 +1,6 @@
-# Project 2
+# incognito
+
+Live link: https://incognito-app.herokuapp.com/
 
 ## Contributors/Roles
 Scrum Master: Michael David
