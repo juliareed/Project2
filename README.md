@@ -1,8 +1,11 @@
 # incognito
 
 Live link: https://incognito-app.herokuapp.com/
+<<<<<<< HEAD
 
 (Browser geolocation must be enabled for this website to work!)
+=======
+>>>>>>> e2ff91ac85b5ae998805a5456e24446bb723ed18
 
 ## Contributors/Roles
 Scrum Master: Michael David
