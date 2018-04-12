@@ -36,7 +36,7 @@ module.exports = function(app) {
                 lng: req.body.lng
             })
             .then(function(dbSecret) {
-                res.redirect("/map");
+                res.redirect("/");
             });
     });
 }
