@@ -111,6 +111,12 @@ h1 {
     animation: letter-flicker 2s linear infinite;
 }
 
+#description {
+    color: #FF1493;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+}
+
 @keyframes text-flicker {
     0% {
         opacity: 0.1;
