@@ -54,8 +54,6 @@ body {
 }
 
 
-/*Tried to change font color here; did not work. */
-
 .card {
     background-color: black;
     color: #FF1493;
@@ -262,3 +260,23 @@ h1 {
     animation: border-flicker 2s linear infinite;
     position: absolute;
 }
+
+@media screen and (max-width: 900px) {
+    #incognito {
+        display: none;
+    }
+    .black {
+        text-align: center;
+    }
+
+  }
+  
+  @media screen and (max-width: 600px) {
+    #incognito {
+        display: none;
+    }
+    .black {
+        text-align: center;
+    }
+
+  }
