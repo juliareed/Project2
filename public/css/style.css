@@ -116,6 +116,7 @@ h1 {
     display: none;
 }
 
+
 @keyframes text-flicker {
     0% {
         opacity: 0.1;
@@ -294,6 +295,19 @@ h1 {
     }
     .black {
         text-align: center;
+    }
+    #bluebuttons {
+        display: flex;
+        margin-top: -110px;
+    }
+    #postbutton, #refreshbutton {
+        color: #1086e8;
+    }
+    .material-icons {
+        display: flex;
+        justify-content: center;
+        color: white;
+       
     }
 
   }
