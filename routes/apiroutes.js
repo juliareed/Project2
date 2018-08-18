@@ -29,9 +29,15 @@ module.exports = function(app) {
 
     // POST route for saving a new secret
     app.post("/api/secrets", function(req, res) {
+
+        //FUNCTION TO STRIP HTML TAGS FROM USER INPUT
+         function deleteHTML(text){
+            return text.replace(/(<([^>]+)>)/ig, "");
+         }
+
         db.Secret
             .create({
-                secret: req.body.secret,
+                secret: deleteHTML(req.body.secret),
                 lat: req.body.lat,
                 lng: req.body.lng
             })
