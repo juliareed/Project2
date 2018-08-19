@@ -35,6 +35,9 @@ module.exports = function(app) {
             return text.replace(/(<([^>]+)>)/ig, "");
          }
 
+         //CONDITIONAL TO ONLY POST IF SECURITY HEADER MATCHES POST REQUEST
+        var securityKey = req.headers["sec103"];
+        if (securityKey && securityKey === "gogoplz56923") {
         db.Secret
             .create({
                 secret: deleteHTML(req.body.secret),
@@ -43,6 +46,7 @@ module.exports = function(app) {
             })
             .then(function(dbSecret) {
                 res.redirect("/");
-            });
-    });
+            })
+        }
+    })
 }

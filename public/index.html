@@ -370,8 +370,6 @@
                       <div class="input-field col s12">
                           <i class="material-icons">star_border</i>
                           <input id="secret" type="text" class="validate" name="secret">
-                          <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
-                          <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
                           <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
                       </div>
                   </div>
@@ -384,3 +382,18 @@
 </body>
 
 </html>
+
+
+
+
+<!-- <form class="col s12" action="api/secrets" method="post">
+    <div class="row modal-form-row">
+        <div class="input-field col s12">
+            <i class="material-icons">star_border</i>
+            <input id="secret" type="text" class="validate" name="secret">
+            <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
+            <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
+            <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
+        </div>
+    </div>
+</form> -->

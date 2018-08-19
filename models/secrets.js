@@ -12,9 +12,11 @@ var Secret = sequelize.define('Secret', {
     },
     lat: {
       type: DataTypes.DECIMAL(17, 15),
+      allowNull: false,
     },
     lng: {
       type: DataTypes.DECIMAL(17, 15),
+      allowNull: false,
     },
     username: {
       type: DataTypes.STRING,
