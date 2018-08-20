@@ -321,7 +321,6 @@
             url: "/secrets",
             method: "GET"
         }).done(function(response) {
-            console.log(response);
             for (var i = 0; i < response.length; i++) {
                 var uluru = {
                     lat: parseFloat(response[i].lat),
@@ -346,6 +345,15 @@
             }
         });
 
+        $.ajax({
+            url: "/index",
+            method: "GET"
+        }).done(function(response) {
+                document.getElementById("postbutton").onclick = function() {
+                document.getElementById("tokenid").value = response;
+            };
+        });
+
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
@@ -365,35 +373,24 @@
             $(".modal-content").html(`
               <h5>What's your deepest, darkest secret?</h5>
               <br>
-              <form class="col s12" action="api/secrets" method="post">
-                  <div class="row modal-form-row">
-                      <div class="input-field col s12">
-                          <i class="material-icons">star_border</i>
-                          <input id="secret" type="text" class="validate" name="secret">
-                          <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
-                      </div>
-                  </div>
-              </form>
+                <form class="col s12" action="api/secrets" method="post">
+                    <div class="row modal-form-row">
+                        <div class="input-field col s12">
+                            <i class="material-icons">star_border</i>
+                            <input id="secret" type="text" class="validate" name="secret">
+                            <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
+                            <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
+                            <input type="text" id="tokenid" name="tokenid" style="display:none" readonly><br>
+                            <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
+                        </div>
+                    </div>
+                 </form>
         `)
-        });
+        })
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLtXQZ2iYfKS8vsAYLGrWiVK7JKM8p9mk&callback=initMap">
     </script>
 </body>
 
 </html>
-
-
-
-
-<!-- <form class="col s12" action="api/secrets" method="post">
-    <div class="row modal-form-row">
-        <div class="input-field col s12">
-            <i class="material-icons">star_border</i>
-            <input id="secret" type="text" class="validate" name="secret">
-            <input type="number" id="lat" name="lat" style="display:none" value=${userPos[0].lat} readonly><br>
-            <input type="number" id="lng" name="lng" style="display:none" value=${userPos[0].lng} readonly><br>
-            <input type="submit" class="modal-action modal-close waves-effect light-blue darken-2 btn" id="modalsubmitbutton" value="post a secret">
-        </div>
-    </div>
-</form> -->
